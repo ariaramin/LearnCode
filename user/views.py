@@ -9,7 +9,7 @@ def register(request):
         if form.is_valid():
             form.save()
             return redirect('profile')
-    return render(request, 'registration/register.html', {'form': form})
+    return render(request, 'registration/form.html', {'form': form})
 
 
 def profile(request):

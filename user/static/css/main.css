@@ -1,0 +1,67 @@
+
+html{
+    scroll-behavior: smooth;
+}
+
+.disable{
+    overflow: hidden;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Academy Engraved LET', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
+    transition: .3s linear;
+}
+
+
+.btn{
+    margin: 0 5px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background: #f8425f;
+}
+
+
+.intro{
+    margin: 5% 0 10% 0;
+}
+
+.about span{
+    font-size: 3rem;
+    font-weight: 900;
+    color: #000000;
+}
+
+.about .btn{
+    padding: 5px 35px;
+    border-radius: 5px;
+    background: #f8425f;
+    transition: .2s linear;
+}
+
+.about .btn:hover{
+    border-radius: 20px;
+}
+
+.suggested .price{
+    color: #06ca31;
+}
+.suggested .time{
+    color: #2184e0;
+}
+.suggested .instructor, .level, .detail{
+    color: #777777;
+}
+.suggested .date{
+    color: #000000;
+}

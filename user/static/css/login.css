@@ -1,0 +1,64 @@
+.cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-150deg, rgb(0, 142, 255) 37%, rgba(155, 211, 255, 1) 100%);
+    z-index: 111;
+    color: #ffff;
+}
+
+.cover-content h1 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.cover-content .cover-btn {
+    border: 1px solid #ffff;
+    background: inherit;
+    padding: 10px 75px;
+    border-radius: 40px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffff;
+    text-decoration: none;
+}
+
+.content h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #008EFF;
+}
+
+.media li {
+    font-size: 2rem;
+    margin: 0 10px;
+}
+
+
+input:focus {
+    border-left: 5px solid #008EFF;
+    transition: .1s linear;
+}
+
+.form {
+    padding: 20px 75px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#eye {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.content .btn {
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: #008EFF;
+    border-radius: 40px;
+    padding: 7px 60px;
+}
+

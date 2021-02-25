@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+        <!--title-->
+        <div class="position-relative mb-4">
+          <h2>Instructors</h2>
+        </div>
+        <!--items-->
+        <div class="container my-3">
+            <div class="row">
+                {% for instructor in Instructors %}
+                    <div class="col-12 col-lg-4 col-md-4 my-4">
+                        <a href="{% url 'instructor' instructor.id %}">
+                          <div class="card shadow-sm">
+                            <img src="{{ instructor.image.url }}" class="card-img-top img-fluid" alt="{{ instructor.username }}"/><hr/>
+                            <div class="card-title text-center">
+                              <i class="fas fa-user mx-1"></i>
+                              <h5 class="card-title text-center mb-4 d-inline">{{ instructor.username }}</h5>
+                            </div>
+                          </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}
+

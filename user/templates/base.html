@@ -19,7 +19,7 @@
 
     {% include 'navbar.html' %}
 
-    <div class="container my-5">
+    <div class="container-fluid my-5">
         {% block content %}
 
         {% endblock %}
@@ -30,5 +30,6 @@
     {% block js %}
     
     {% endblock %}
+    <script src="{% static 'js/base.js' %}"></script>
 </body>
 </html>

@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Update Course
+{% endblock %}
+
+{% block css %}
+    <link href="{% static 'course/create.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row shadow-lg rounded-3">
+        <!--Update Course-->
+        <div class="col-12">
+            <div class="content text-center my-4">
+                <h1>Update Course</h1>
+
+                <div class="form text-center mx-auto w-50 my-3">
+                    <form action="{% url 'update.course' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <div class="title">
+                                <label for="title">
+                                    <span>Title:</span>
+                                </label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="{{ course.title }}">
+                            </div>
+
+                            <div class="description my-3">
+                                <label for="description">
+                                    <span>Description:</span>
+                                </label>
+                                <textarea class="form-control" id="description" name="description" placeholder="{{ course.description }}"></textarea>
+                            </div>
+
+                            <div class="image">
+                                <label for="image">
+                                    <span>Image:</span>
+                                </label>
+                                <input type="file" accept="image/*" class="form-control" id="image" name="image" value="{{ course.image }}">
+                            </div>
+
+                            <div class="level my-3">
+                                <label for="level">
+                                    <span>Level</span>
+                                </label>
+                                <select id="level" name="level">
+                                    <option>{{ course.level }}</option>
+                                    <option value="beg">Beginner</option>
+                                    <option value="int">Intermediat</option>
+                                    <option value="adv">Advance</option>
+                                </select>
+                            </div>
+
+                            <div class="price">
+                                <label for="price">
+                                    <span>Price:</span>
+                                </label>
+                                <input type="number" min="0" class="form-control" id="price" name="price" value="{{ course.price }}">
+                            </div>
+
+                            <div class="tags my-3">
+                                <label for="tags">
+                                    <span>Tags:</span>
+                                </label>
+                                <textarea class="form-control" id="tags" name="tags" placeholder="{{ course.tags }}"></textarea>
+                            </div>
+
+                            <div class="instructor">
+                                <label for="instructor">
+                                    <span>Instructor:</span>
+                                </label>
+                                <select id="instructor" name="instructor">
+                                    <option>{{ course.instructor.username }}</option>
+                                    <option value="{{ instructor.id }}">{{ instructor.username }}</option>
+                                </select>
+                            </div>
+
+                            <div class="status my-3">
+                                <label for="status">
+                                    <span>Status:</span>
+                                </label>
+                                <select id="status" name="status">
+                                    <option>{{ course.status }}</option>
+                                    <option value="drf">Draft</option>
+                                    <option value="pub">Published</option>
+                                </select>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <input type="submit" class="btn btn-outline-success shadow-sm" value="Submit">
+                            </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

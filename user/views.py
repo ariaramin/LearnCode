@@ -8,8 +8,8 @@ def register(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('profile')
-    return render(request, 'registration/form.html', {'form': form})
+            redirect('profile')
+    return render(request, 'registration/register.html', {'form': form})
 
 
 def profile(request):

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from instructor.models import Instructor
 from .models import Course
 from .forms import CourseForm
@@ -15,10 +15,8 @@ def CreateCourse(request):
 
 
 def CourseList(request):
-    context = {
-        'courses': Course.objects.published()
-    }
-    return render(request, 'main.html', context)
+    courses = Course.objects.all()
+    return render(request, 'main.html', {'courses': courses})
 
 
 def CourseUpdate(request, course_id):
@@ -28,3 +26,9 @@ def CourseUpdate(request, course_id):
         if form.is_valid():
             form.save()
     return render(request, 'course/update.html', {'course': course})
+
+
+def CourseDelete(request, course_id):
+    course = Course.objects.get(id=course_id)
+    course.delete()
+    return redirect('courses')

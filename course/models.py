@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from taggit.managers import TaggableManager
 from django.db import models
 from session.models import Session
 from instructor.models import Instructor
@@ -26,7 +25,6 @@ class Course(models.Model):
     image = models.ImageField(upload_to='course/images', null=False)
     level = models.CharField(max_length=5, choices=LEVEL)
     price = models.DecimalField(max_digits=7, decimal_places=0)
-    tags = TaggableManager()
     instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
     status = models.CharField(max_length=5, choices=STATUS)
     session = models.ManyToManyField(Session, default='')

@@ -1,22 +1,25 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-from instructor.models import Instructor
 from .models import Course
 from .forms import CourseForm
 
 
 # Create your views here.
 def CreateCourse(request):
-    instructor = Instructor.objects.get(is_active=1)
     if request.method == 'POST':
         form = CourseForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-    return render(request, 'course/create.html', {'instructor': instructor})
+            redirect('courses')
+    return render(request, 'course/create.html')
 
 
 def CourseList(request):
-    courses = Course.objects.all()
-    return render(request, 'main.html', {'courses': courses})
+    courses_list = Course.objects.published()
+    paginator = Paginator(courses_list, 9)
+    page_number = request.GET.get('page')
+    courses = paginator.get_page(page_number)
+    return render(request, 'course/courses.html', {'courses': courses})
 
 
 def CourseUpdate(request, course_id):
@@ -32,3 +35,8 @@ def CourseDelete(request, course_id):
     course = Course.objects.get(id=course_id)
     course.delete()
     return redirect('courses')
+
+
+def CoursesDashboard(request):
+    courses = Course.objects.all()
+    return render(request, 'admin/dashboard.html', {'courses': courses})

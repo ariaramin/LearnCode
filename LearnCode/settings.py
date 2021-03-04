@@ -36,11 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'taggit',
     'user',
     'course',
     'session',
-    'instructor',
 ]
 
 MIDDLEWARE = [
@@ -124,5 +122,8 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 LOGOUT_REDIRECT_URL = 'login'

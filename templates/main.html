@@ -1,0 +1,305 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="../static/css/main.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+      <!--main-->
+    <div class="intro">
+      <div class="main row">
+        <div class="col-12 col-lg-5 text-lg-start text-center my-auto">
+          <div class="container">
+            <div class="about">
+              <span>Online Programming</span><br />
+              <span>Courses</span>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Nesciunt dolor voluptatem praesentium earum officia fugit, nam
+                laboriosam culpa dolorum repellendus.
+              </p>
+              <a href="{% url 'courses' %}" class="btn shadow-sm">See Courses</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-7 text-center">
+          <img src="../static/img/learning.jpg" class="img-fluid" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!--category-->
+    <div class="category container-fluid my-3">
+      <!--title-->
+      <div class="text-center my-4">
+        <h1>Categories</h1>
+      </div>
+      <!--row1-->
+      <div class="row">
+        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
+          <a href="">
+            <img
+              src="../static/img/frontend.jpg"
+              class="border-0"
+              alt=""
+              width="300"
+              height="220"
+            />
+            <h2>Frontend</h2>
+          </a>
+        </div>
+        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
+          <a href="">
+            <img
+              src="../static/img/backend.jpg"
+              class="border-0"
+              alt=""
+              width="300"
+              height="220"
+            />
+            <h2>Backend</h2>
+          </a>
+        </div>
+        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
+          <a href="">
+            <img
+              src="../static/img/programmer.jpg"
+              class="border-0"
+              alt=""
+              width="300"
+              height="220"
+            />
+            <h2>Desktop</h2>
+          </a>
+        </div>
+      </div>
+      <!--row2-->
+      <div class="row">
+        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
+          <a href="">
+            <img
+              src="../static/img/database.jpg"
+              class="border-0"
+              alt=""
+              width="300"
+              height="220"
+            />
+            <h2>Database</h2>
+          </a>
+        </div>
+        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
+          <a href="">
+            <img
+              src="../static/img/mobile.jpg"
+              class="border-0"
+              alt=""
+              width="300"
+              height="220"
+            />
+            <h2>Mobile</h2>
+          </a>
+        </div>
+        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
+          <a href="">
+            <img
+              src="../static/img/hack.jpg"
+              class="border-0"
+              alt=""
+              width="300"
+              height="220"
+            />
+            <h2>Hack & Security</h2>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--suggested courses-->
+    <div class="suggested container my-5">
+      <!--title-->
+      <div class="position-relative mb-4">
+        <h2 class="d-inline">Suggested Courses</h2>
+        <span class="float-end position-absolute bottom-0 end-0">
+          <a href="{% url 'courses' %}">See More</a>
+          <i class="fas fa-arrow-right mx-1"></i>
+        </span>
+      </div>
+
+      <!--courses-item-->
+      <div class="d-none d-lg-block">
+        <div class="row">
+            {% for course in courses %}
+                <div class="col-12 col-lg-4 col-md-4 my-4">
+                    <a href="">
+                        <div class="card shadow-sm">
+                            <img src="{{ course.image }}" class="card-img-top img-fluid" alt="{{ course.title }}"/>
+                            <div class="card-body">
+                                <h5 class="card-title text-center mb-4">{{ course.title }}</h5>
+                                <div class="card-text">
+                                  <div>
+                                    <span class="instructor">
+                                      <i class="fas fa-user mx-1"></i>
+                                      <span>instructor</span>
+                                    </span>
+                                    <span class="level float-end">
+                                      <i class="fas fa-level-up-alt mx-1"></i>
+                                      <span>{{ course.level }}</span>
+                                    </span>
+                                  </div>
+                                  <hr />
+                                  <div class="text-center">
+                                    <span class="price float-start">
+                                      <i class="fas fa-money-bill-wave mx-1"></i>
+                                      <span>{{ course.price }}</span>
+                                    </span>
+                                    <span class="date">
+                                      <i class="fas fa-calendar-alt mx-1"></i>
+                                      <span>{{ course.created_at.date }}</span>
+                                    </span>
+                                    <span class="time float-end">
+                                      <span>time</span>
+                                      <i class="fas fa-clock mx-1"></i>
+                                    </span>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if courses.has_other_pages %}
+                <div class="btn-toolbar justify-content-center">
+                    <ul class="btn-group">
+                        {% if courses.has_previous %}
+                            <li class="btn btn-outline-secondary bg-white">
+                                <a href="?page={{ courses.previous_page_number }}">
+                                    <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="btn btn-outline-secondary disabled">
+                                <i class="fas fa-arrow-left"></i>
+                            </li>
+                        {% endif %}
+                        {% for num in courses.paginator.page_range %}
+                            {% if courses.number == num %}
+                                <li class="btn btn-outline-secondary active">
+                                    <a href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                            {% else %}
+                                <li class="btn btn-outline-secondary bg-white">
+                                    <a href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if courses.has_next %}
+                            <li class="btn btn-outline-secondary bg-white">
+                                <a href="?page={{ courses.next_page_number }}">
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="btn btn-outline-secondary disabled">
+                                <i class="fas fa-arrow-right"></i>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endif %}
+      </div>
+
+    </div>
+
+    <!--articles-->
+    <div class="articles container my-5">
+      <!--title-->
+      <div class="position-relative mb-4">
+        <h2 class="d-inline">Suggested Articles</h2>
+        <span class="float-end position-absolute bottom-0 end-0">
+          <a href="">See More</a>
+          <i class="fas fa-arrow-right mx-1"></i>
+        </span>
+      </div>
+
+        <!--
+
+      <div class="d-none d-lg-block">
+        <div class="row">
+          <div class="col-12 col-lg-4 col-md-4 my-4">
+            <div class="card">
+              <a href="">
+              <img src="../img/4457.jpg" class="card-img-top img-fluid" alt="">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">The effect of teamwork on programming</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fugiat officiis illum ratione dolorum ad voluptas eveniet animi recusandae repudiandae earum ea iusto vero, provident repellendus.
+                </p><hr>
+                <div class="detail">
+                  <span>
+                    <i class="fas fa-user"></i>
+                    <span>name</span>
+                  </span>
+                  <span class="float-end">
+                    <span>date</span>
+                    <i class="fas fa-calendar-alt"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 col-md-4 my-4">
+            <div class="card">
+              <a href="">
+              <img src="../img/webinnar.jpg" class="card-img-top img-fluid" alt="">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Benefits of online courses</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fugiat officiis illum ratione dolorum ad voluptas eveniet animi recusandae repudiandae earum ea iusto vero, provident repellendus. Laboriosam dolores ratione quibusdam.
+                </p><hr>
+                <div class="detail">
+                  <span>
+                    <i class="fas fa-user"></i>
+                    <span>name</span>
+                  </span>
+                  <span class="float-end">
+                    <span>date</span>
+                    <i class="fas fa-calendar-alt"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 col-md-4 my-4">
+            <div class="card">
+              <a href="">
+              <img src="../img/5293.jpg" class="card-img-top img-fluid" alt="">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Self study programming</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fugiat officiis illum ratione dolorum ad voluptas eveniet animi recusandae repudiandae earum ea iusto vero, provident repellendus. Laboriosam dolores ratione quibusdam.
+                </p><hr>
+                <div class="detail">
+                  <span>
+                    <i class="fas fa-user"></i>
+                    <span>name</span>
+                  </span>
+                  <span class="float-end">
+                    <span>date</span>
+                    <i class="fas fa-calendar-alt"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </div>
+
+{% endblock %}

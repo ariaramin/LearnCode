@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!--courses-->
+    <div class="container my-5">
+            <!--title-->
+            <div class="mb-4">
+              <h2>Courses</h2>
+            </div>
+            <!--courses-item-->
+            <div class="row">
+                {% for course in courses %}
+                    <div class="col-12 col-lg-4 col-md-4 my-4">
+                    <a href="">
+                      <div class="card shadow-sm">
+                        <img src="{{ course.image }}" class="card-img-top img-fluid" alt="{{ course.title }}"/>
+                        <div class="card-body">
+                          <h5 class="card-title text-center mb-4">{{ course.title }}</h5>
+                          <div class="card-text">
+                            <div>
+                              <span class="instructor">
+                                <i class="fas fa-user mx-1"></i>
+                                <span>instructor</span>
+                              </span>
+                              <span class="level float-end">
+                                <i class="fas fa-level-up-alt mx-1"></i>
+                                <span>{{ course.level }}</span>
+                              </span>
+                            </div>
+                            <hr />
+                            <div class="text-center">
+                              <span class="price float-start">
+                                <i class="fas fa-money-bill-wave mx-1"></i>
+                                <span>{{ course.price }}</span>
+                              </span>
+                              <span class="date">
+                                <i class="fas fa-calendar-alt mx-1"></i>
+                                <span>{{ course.created_at.date }}</span>
+                              </span>
+                              <span class="time float-end">
+                                <span>{{ course.time }}</span>
+                                <i class="fas fa-clock mx-1"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                </div>
+                    {% endfor %}
+            </div>
+
+            {% if courses.has_other_pages %}
+                <div class="btn-toolbar justify-content-center">
+                    <ul class="btn-group">
+                        {% if courses.has_previous %}
+                            <li class="btn btn-outline-secondary bg-white">
+                                <a href="?page={{ courses.previous_page_number }}">
+                                    <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="btn btn-outline-secondary disabled">
+                                <i class="fas fa-arrow-left"></i>
+                            </li>
+                        {% endif %}
+                        {% for num in courses.paginator.page_range %}
+                            {% if courses.number == num %}
+                                <li class="btn btn-outline-secondary active">
+                                    <a href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                            {% else %}
+                                <li class="btn btn-outline-secondary bg-white">
+                                    <a href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if courses.has_next %}
+                            <li class="btn btn-outline-secondary bg-white">
+                                <a href="?page={{ courses.next_page_number }}">
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="btn btn-outline-secondary disabled">
+                                <i class="fas fa-arrow-right"></i>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endif %}
+
+    </div>
+{% endblock %}
+
+

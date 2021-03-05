@@ -10,7 +10,7 @@ def CreateCourse(request):
         form = CourseForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            redirect('courses/')
+            return redirect('courses')
     return render(request, 'course/create.html')
 
 
@@ -37,6 +37,4 @@ def CourseDelete(request, course_id):
     return redirect('courses')
 
 
-def CoursesDashboard(request):
-    courses = Course.objects.all()
-    return render(request, 'admin/dashboard.html', {'courses': courses})
+

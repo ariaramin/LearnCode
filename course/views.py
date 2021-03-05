@@ -10,7 +10,7 @@ def CreateCourse(request):
         form = CourseForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            redirect('courses')
+            redirect('courses/')
     return render(request, 'course/create.html')
 
 

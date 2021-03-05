@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}
+    Home
+{% endblock %}
+
 {% block css %}
     <link href="../static/css/main.css" rel="stylesheet">
 {% endblock %}
@@ -9,7 +13,7 @@
 {% block content %}
       <!--main-->
     <div class="intro">
-      <div class="main row">
+      <div class="main row justify-content-center">
         <div class="col-12 col-lg-5 text-lg-start text-center my-auto">
           <div class="container">
             <div class="about">
@@ -24,7 +28,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-7 text-center">
+        <div class="col-12 col-lg-7 text-end">
           <img src="../static/img/learning.jpg" class="img-fluid" alt="" />
         </div>
       </div>
@@ -45,7 +49,7 @@
               class="border-0"
               alt=""
               width="300"
-              height="220"
+              height="250"
             />
             <h2>Frontend</h2>
           </a>
@@ -57,7 +61,7 @@
               class="border-0"
               alt=""
               width="300"
-              height="220"
+              height="250"
             />
             <h2>Backend</h2>
           </a>
@@ -69,7 +73,7 @@
               class="border-0"
               alt=""
               width="300"
-              height="220"
+              height="250"
             />
             <h2>Desktop</h2>
           </a>
@@ -84,7 +88,7 @@
               class="border-0"
               alt=""
               width="300"
-              height="220"
+              height="250"
             />
             <h2>Database</h2>
           </a>
@@ -96,7 +100,7 @@
               class="border-0"
               alt=""
               width="300"
-              height="220"
+              height="250"
             />
             <h2>Mobile</h2>
           </a>
@@ -108,7 +112,7 @@
               class="border-0"
               alt=""
               width="300"
-              height="220"
+              height="250"
             />
             <h2>Hack & Security</h2>
           </a>
@@ -120,7 +124,7 @@
     <div class="suggested container my-5">
       <!--title-->
       <div class="position-relative mb-4">
-        <h2 class="d-inline">Suggested Courses</h2>
+        <h2 class="d-inline">Newest Courses</h2>
         <span class="float-end position-absolute bottom-0 end-0">
           <a href="{% url 'courses' %}">See More</a>
           <i class="fas fa-arrow-right mx-1"></i>
@@ -131,85 +135,47 @@
       <div class="d-none d-lg-block">
         <div class="row">
             {% for course in courses %}
-                <div class="col-12 col-lg-4 col-md-4 my-4">
-                    <a href="">
-                        <div class="card shadow-sm">
-                            <img src="{{ course.image }}" class="card-img-top img-fluid" alt="{{ course.title }}"/>
-                            <div class="card-body">
-                                <h5 class="card-title text-center mb-4">{{ course.title }}</h5>
-                                <div class="card-text">
-                                  <div>
-                                    <span class="instructor">
-                                      <i class="fas fa-user mx-1"></i>
-                                      <span>instructor</span>
-                                    </span>
-                                    <span class="level float-end">
-                                      <i class="fas fa-level-up-alt mx-1"></i>
-                                      <span>{{ course.level }}</span>
-                                    </span>
-                                  </div>
-                                  <hr />
-                                  <div class="text-center">
-                                    <span class="price float-start">
-                                      <i class="fas fa-money-bill-wave mx-1"></i>
-                                      <span>{{ course.price }}</span>
-                                    </span>
-                                    <span class="date">
-                                      <i class="fas fa-calendar-alt mx-1"></i>
-                                      <span>{{ course.created_at.date }}</span>
-                                    </span>
-                                    <span class="time float-end">
-                                      <span>time</span>
-                                      <i class="fas fa-clock mx-1"></i>
-                                    </span>
-                                  </div>
+                {% if forloop.counter < 10 %}
+                    <div class="col-12 col-lg-4 col-md-4 my-4">
+                        <a href="" class="link-dark">
+                            <div class="card shadow-sm">
+                                <img src="{{ course.image.url }}" class="card-img-top img-fluid" alt="{{ course.title }}"/>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center mb-4">{{ course.title }}</h5>
+                                    <div class="card-text">
+                                      <div>
+                                        <span class="instructor">
+                                          <i class="fas fa-user mx-1"></i>
+                                          <span>instructor</span>
+                                        </span>
+                                        <span class="level float-end">
+                                          <i class="fas fa-level-up-alt mx-1"></i>
+                                          <span>{{ course.level }}</span>
+                                        </span>
+                                      </div>
+                                      <hr />
+                                      <div class="text-center">
+                                        <span class="price float-start">
+                                          <i class="fas fa-money-bill-wave mx-1"></i>
+                                          <span>{{ course.price }}</span>
+                                        </span>
+                                        <span class="date">
+                                          <i class="fas fa-calendar-alt mx-1"></i>
+                                          <span>{{ course.created_at.date }}</span>
+                                        </span>
+                                        <span class="time float-end">
+                                          <span>time</span>
+                                          <i class="fas fa-clock mx-1"></i>
+                                        </span>
+                                      </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
-
-        {% if courses.has_other_pages %}
-                <div class="btn-toolbar justify-content-center">
-                    <ul class="btn-group">
-                        {% if courses.has_previous %}
-                            <li class="btn btn-outline-secondary bg-white">
-                                <a href="?page={{ courses.previous_page_number }}">
-                                    <i class="fas fa-arrow-left"></i>
-                                </a>
-                            </li>
-                            {% else %}
-                            <li class="btn btn-outline-secondary disabled">
-                                <i class="fas fa-arrow-left"></i>
-                            </li>
-                        {% endif %}
-                        {% for num in courses.paginator.page_range %}
-                            {% if courses.number == num %}
-                                <li class="btn btn-outline-secondary active">
-                                    <a href="?page={{ num }}">{{ num }}</a>
-                                </li>
-                            {% else %}
-                                <li class="btn btn-outline-secondary bg-white">
-                                    <a href="?page={{ num }}">{{ num }}</a>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                        {% if courses.has_next %}
-                            <li class="btn btn-outline-secondary bg-white">
-                                <a href="?page={{ courses.next_page_number }}">
-                                    <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            {% else %}
-                            <li class="btn btn-outline-secondary disabled">
-                                <i class="fas fa-arrow-right"></i>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            {% endif %}
       </div>
 
     </div>
@@ -218,7 +184,7 @@
     <div class="articles container my-5">
       <!--title-->
       <div class="position-relative mb-4">
-        <h2 class="d-inline">Suggested Articles</h2>
+        <h2 class="d-inline">Newest Articles</h2>
         <span class="float-end position-absolute bottom-0 end-0">
           <a href="">See More</a>
           <i class="fas fa-arrow-right mx-1"></i>
@@ -303,3 +269,4 @@
     </div>
 
 {% endblock %}
+

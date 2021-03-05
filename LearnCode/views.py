@@ -5,8 +5,5 @@ from django.shortcuts import render
 
 
 def Main(request):
-    courses_list = Course.objects.published()
-    paginator = Paginator(courses_list, 6)
-    page_num = request.GET.get('page')
-    courses = paginator.get_page(page_num)
+    courses = Course.objects.published()
     return render(request, 'main.html', {'courses': courses})

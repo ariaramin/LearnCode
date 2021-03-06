@@ -53,7 +53,7 @@
           <div class="position-sticky pt-3">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+                <a class="nav-link active" aria-current="page" href="{% url 'read.course' %}">
                   <span data-feather="home"></span>
                   Courses
                 </a>
@@ -61,7 +61,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="file"></span>
-                  Orders
+                  Articles
                 </a>
               </li>
               <li class="nav-item">
@@ -140,10 +140,7 @@
             </div>
           </div>
 
-          <h2>{% block title %}
-          {% endblock %}</h2>
-
-        {% block content %}
+        {% block dashboard %}
 
         {% endblock %}
 

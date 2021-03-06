@@ -20,7 +20,4 @@ def profile(request):
 
 
 def dashboard(request):
-    context = {
-        'courses': Course.objects.all()
-    }
-    return render(request, 'admin/dashboard.html', context)
+    return render(request, 'admin/dashboard.html')

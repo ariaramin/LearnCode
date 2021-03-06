@@ -10,8 +10,13 @@ def CreateCourse(request):
         form = CourseForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('courses')
+            return redirect('read.course')
     return render(request, 'course/create.html')
+
+
+def ReadCourse(request):
+    courses = Course.objects.all()
+    return render(request, 'course/read.html', {'courses': courses})
 
 
 def CourseList(request):
@@ -28,13 +33,14 @@ def CourseUpdate(request, course_id):
         form = CourseForm(request.POST, request.FILES, instance=course)
         if form.is_valid():
             form.save()
+            return redirect('read.course')
     return render(request, 'course/update.html', {'course': course})
 
 
 def CourseDelete(request, course_id):
     course = Course.objects.get(id=course_id)
     course.delete()
-    return redirect('courses')
+    return redirect('read.course')
 
 
 

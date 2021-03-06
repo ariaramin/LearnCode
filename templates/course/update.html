@@ -1,48 +1,37 @@
 {% extends 'admin/dashboard.html' %}
-{% load static %}
 
 
-{% block css %}
-    <link href="../../static/course/create.css" rel="stylesheet">
-{% endblock %}
 
-{% block title %}
-    Update Course
-{% endblock %}
-
-{% block content %}
-    <div class="container">
-        <div class="row shadow-lg rounded-3">
-        <!--Update Course-->
-        <div class="col-12">
-            <div class="content text-center my-4">
-                <h1>Update Course</h1>
-
-                <div class="form text-center mx-auto w-50 my-3">
-                    <form action="{% url 'update.course' course.id %}" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                            <div class="title">
+{% block dashboard %}
+    <!--Update Course-->
+    <div class="col-12">
+        <div class="content text-center my-4">
+            <h1>Update Course</h1>
+            <div class="form text-center mx-auto w-50 my-3">
+                <form action="{% url 'update.course' course.id %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="title">
                                 <label for="title">
                                     <span>Title:</span>
                                 </label>
                                 <input type="text" class="form-control" id="title" name="title" value="{{ course.title }}">
                             </div>
 
-                            <div class="description my-3">
+                    <div class="description my-3">
                                 <label for="description">
                                     <span>Description:</span>
                                 </label>
                                 <textarea class="form-control" id="description" name="description">{{ course.description }}</textarea>
                             </div>
 
-                            <div class="image">
+                    <div class="image">
                                 <label for="image">
                                     <span>Image:</span>
                                 </label>
                                 <input type="file" class="form-control" id="image" name="image" value="{{ course.image.url }}">
                             </div>
 
-                            <div class="level my-3">
+                    <div class="level my-3">
                                 <label for="level">
                                     <span>Level</span>
                                 </label>
@@ -54,7 +43,7 @@
                                 </select>
                             </div>
 
-                            <div class="price">
+                    <div class="price">
                                 <label for="price">
                                     <span>Price:</span>
                                 </label>
@@ -62,7 +51,7 @@
                             </div>
 
 
-                            <div class="status my-3">
+                    <div class="status my-3">
                                 <label for="status">
                                     <span>Status:</span>
                                 </label>
@@ -73,14 +62,11 @@
                                 </select>
                             </div>
 
-                            <div class="text-center mt-4">
+                    <div class="text-center mt-4">
                                 <input type="submit" class="btn btn-outline-success shadow-sm" value="Submit">
                             </div>
-
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
-    </div>
     </div>
 {% endblock %}

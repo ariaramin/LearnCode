@@ -23,7 +23,7 @@ class Course(models.Model):
     description = models.TextField(default='')
     image = models.ImageField(upload_to='static/course/images/', null=False)
     level = models.CharField(max_length=5, choices=LEVEL)
-    price = models.DecimalField(max_digits=7, decimal_places=0, default=0)
+    price = models.DecimalField(max_digits=7, decimal_places=2, default=0)
     status = models.CharField(max_length=5, choices=STATUS)
     session = models.ManyToManyField(Session)
     students = models.ManyToManyField(User, related_name='Student')

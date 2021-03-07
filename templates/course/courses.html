@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     Courses
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="../../static/css/main.css">
+    <link href="../../static/css/main.css" rel="stylesheet" >
 {% endblock %}
 
 {% block content %}
@@ -13,49 +14,49 @@
     <div class="container my-5">
             <!--title-->
             <div class="mb-4">
-              <h2>Courses</h2>
+              <h1>Courses</h1>
             </div>
             <!--courses-item-->
             <div class="row">
                 {% for course in courses %}
                     <div class="col-12 col-lg-4 col-md-4 my-4">
-                    <a href="" class="link-dark">
-                      <div class="card shadow-sm">
-                        <img src="{{ course.image.url }}" class="card-img-top img-fluid" alt="{{ course.title }}"/>
-                        <div class="card-body">
-                          <h5 class="card-title text-center mb-4">{{ course.title }}</h5>
-                          <div class="card-text">
-                            <div>
-                              <span class="instructor">
-                                <i class="fas fa-user mx-1"></i>
-                                <span>instructor</span>
-                              </span>
-                              <span class="level float-end">
-                                <i class="fas fa-level-up-alt mx-1"></i>
-                                <span>{{ course.level }}</span>
-                              </span>
+                        <a href="" class="link-dark">
+                            <div class="card shadow-sm">
+                                <img src="{{ course.image.url }}" class="card-img-top img-fluid" alt="{{ course.title }}"/>
+                                <div class="card-body">
+                                  <h5 class="card-title text-center mb-4">{{ course.title }}</h5>
+                                  <div class="card-text">
+                                    <div>
+                                      <span class="instructor">
+                                        <i class="fas fa-user mx-1"></i>
+                                        <span>instructor</span>
+                                      </span>
+                                      <span class="level float-end">
+                                        <i class="fas fa-level-up-alt mx-1"></i>
+                                        <span>{{ course.level }}</span>
+                                      </span>
+                                    </div>
+                                    <hr />
+                                    <div class="text-center">
+                                      <span class="price float-start">
+                                        <i class="fas fa-money-bill-wave mx-1"></i>
+                                        <span>{{ course.price }}$</span>
+                                      </span>
+                                      <span class="date">
+                                        <i class="fas fa-calendar-alt mx-1"></i>
+                                        <span>{{ course.created_at.date }}</span>
+                                      </span>
+                                      <span class="time float-end">
+                                        <span>{{ course.time }}</span>
+                                        <i class="fas fa-clock mx-1"></i>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
                             </div>
-                            <hr />
-                            <div class="text-center">
-                              <span class="price float-start">
-                                <i class="fas fa-money-bill-wave mx-1"></i>
-                                <span>{{ course.price }}</span>
-                              </span>
-                              <span class="date">
-                                <i class="fas fa-calendar-alt mx-1"></i>
-                                <span>{{ course.created_at.date }}</span>
-                              </span>
-                              <span class="time float-end">
-                                <span>{{ course.time }}</span>
-                                <i class="fas fa-clock mx-1"></i>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                </div>
-                    {% endfor %}
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
 
             {% if courses.has_other_pages %}

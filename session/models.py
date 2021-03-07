@@ -19,7 +19,7 @@ class Session(models.Model):
     title = models.CharField(max_length=100, null=False)
     description = models.TextField()
     video = models.FileField(upload_to='session/videos', null=False)
-    time = models.DurationField(default=timedelta(seconds=0, minutes=0, hours=0))
+    time = models.DurationField()
     status = models.CharField(max_length=5, choices=STATUS)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)

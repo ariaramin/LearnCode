@@ -53,15 +53,15 @@ a{
     border-radius: 20px;
 }
 
-.suggested .price{
+.price{
     color: #06ca31;
 }
-.suggested .time{
+.time{
     color: #2184e0;
 }
-.suggested .instructor, .level, .detail{
+.instructor, .level, .detail{
     color: #777777;
 }
-.suggested .date{
+.date{
     color: #000000;
 }

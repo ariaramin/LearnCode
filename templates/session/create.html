@@ -1,65 +1,55 @@
 {% extends 'admin/dashboard.html' %}
 
 
-{% block title %}
-    Add Session
-{% endblock %}
 
-{% block content %}
-    <div class="container">
-        <div class="row shadow-lg rounded-3">
-        <!--Create Session-->
-        <div class="col-12">
-            <div class="content text-center my-4">
-                <div class="form text-center mx-auto w-50 my-3">
-                    <form action="{% url 'create.session' %}" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                            <div class="title">
-                                <label for="title">
-                                    <span>Title:</span>
-                                </label>
-                                <input type="text" class="form-control" id="title" name="title" placeholder="Title">
-                            </div>
-
-                            <div class="description my-3">
-                                <label for="description">
-                                    <span>Description:</span>
-                                </label>
-                                <textarea class="form-control" id="description" name="description" placeholder="description"></textarea>
-                            </div>
-
-                            <div class="video">
-                                <label for="video">
-                                    <span>Video:</span>
-                                </label>
-                                <input type="file" class="form-control" id="video" name="video">
-                            </div>
-
-                            <div class="time">
-                                <label for="time">
-                                    <span>Time:</span>
-                                </label>
-                                <input type="time" class="form-control" id="time" name="time">
-                            </div>
-
-                            <div class="status my-3">
-                                <label for="status">
-                                    <span>Status:</span>
-                                </label>
-                                <select id="status" name="status">
-                                    <option value="drf">Draft</option>
-                                    <option value="pub">Published</option>
-                                </select>
-                            </div>
-
-                            <div class="text-center mt-4">
-                                <input type="submit" class="btn btn-outline-success shadow-sm" value="Submit">
-                            </div>
-
-                    </form>
+{% block dashboard %}
+    <!--Create Session-->
+    <div class="content text-start my-4">
+        <div class="form text-start w-25 my-3">
+            <form action="{% url 'create.session' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="title">
+                    <label for="title">
+                        <span>Title:</span>
+                    </label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Title">
                 </div>
-            </div>
+
+                <div class="description my-3">
+                    <label for="description">
+                        <span>Description:</span>
+                    </label>
+                    <textarea class="form-control" id="description" name="description" placeholder="description"></textarea>
+                </div>
+
+                <div class="video">
+                    <label for="video">
+                        <span>Video:</span>
+                    </label>
+                    <input type="file" class="form-control" id="video" name="video">
+                </div>
+
+                <div class="time">
+                    <label for="time">
+                        <span>Time:</span>
+                    </label>
+                    <input type="time" class="form-control" id="time" name="time">
+                </div>
+
+                <div class="status my-3">
+                    <label for="status">
+                        <span>Status:</span>
+                    </label>
+                    <select id="status" name="status">
+                        <option value="drf">Draft</option>
+                        <option value="pub">Published</option>
+                    </select>
+                </div>
+
+                <div class="text-center mt-4">
+                    <input type="submit" class="btn btn-outline-success shadow-sm" value="Submit">
+                </div>
+            </form>
         </div>
-    </div>
     </div>
 {% endblock %}

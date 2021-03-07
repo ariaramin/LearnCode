@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('create', views.CreateSession, name='create.session'),
-    #path('show', views.ShowSession, name='show.session'),
+    #path('read', views.ReadSession, name='read.session'),
     #path('create', views.CreateSession, name='create.session'),
     #path('create', views.CreateSession, name='create.session'),
 ]

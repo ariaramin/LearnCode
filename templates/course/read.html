@@ -15,12 +15,12 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>title</th>
-              <th>description</th>
-              <th>image</th>
-              <th>level</th>
-              <th>price</th>
-              <th>manage</th>
+              <th>Title</th>
+              <th>Image</th>
+              <th>Level</th>
+              <th>Price</th>
+              <th>Created_at</th>
+              <th>Manage</th>
             </tr>
           </thead>
           <tbody>
@@ -28,13 +28,14 @@
               <tr>
                   <td>{{ course.id }}</td>
                   <td>{{ course.title }}</td>
-                  <td>{{ course.description | truncatewords:3 }}</td>
                   <td><img src="{{ course.image.url }}" class="img-fluid" width="50" height="50"></td>
                   <td>{{ course.level }}</td>
                   <td>{{ course.price }}</td>
+                  <td>{{ course.created_at }}</td>
                   <td>
-                      <a href="{% url 'update.course' course.id %}" class="btn btn-warning mx-2">Update</a>
-                      <a href="{% url 'delete.course' course.id %}" class="btn btn-danger">Delete</a>
+                      <a href="{% url 'update.course' course.id %}" class="btn btn-warning">Update</a>
+                      <a href="{% url 'delete.course' course.id %}" class="btn btn-danger mx-2">Delete</a>
+                      <a href="{% url 'read.session' course.id %}" class="btn btn-info">Sessions</a>
                   </td>
               </tr>
           {% endfor %}

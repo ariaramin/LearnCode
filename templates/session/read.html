@@ -1,0 +1,49 @@
+{% extends 'admin/dashboard.html' %}
+
+
+{% block title %}
+    Sessions
+{% endblock %}
+
+
+{% block dashboard %}
+    <h2>Sessions</h2>
+    <a href="{% url 'create.session' course.id %}" class="btn btn-success">Create</a>
+      <div class="table-responsive mt-3">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Video</th>
+              <th>Time</th>
+              <th>Created_at</th>
+              <th>Updated_at</th>
+              <th>Manage</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for session in sessions %}
+              <tr>
+                  <td>{{ session.id }}</td>
+                  <td>{{ session.title }}</td>
+                  <td>{{ session.description | truncatewords:3 }}</td>
+                  <td>
+                       <video width="200" height="100" controls>
+                          <source src="{{ session.video.url }}" type="video/mp4">
+                       </video>
+                  </td>
+                  <td>{{ session.time }}</td>
+                  <td>{{ session.created_at }}</td>
+                  <td>{{ session.updated_at }}</td>
+                  <td>
+                      <a href="{% url 'update.session' session.id %}" class="btn btn-warning mx-2">Update</a>
+                      <a href="{% url 'delete.session' session.id %}" class="btn btn-danger">Delete</a>
+                  </td>
+              </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+{% endblock %}

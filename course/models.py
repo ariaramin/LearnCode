@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
 from django.db import models
-from session.models import Session
 
 
 # Create your models here.
@@ -25,8 +24,6 @@ class Course(models.Model):
     level = models.CharField(max_length=5, choices=LEVEL)
     price = models.DecimalField(max_digits=7, decimal_places=2, default=0)
     status = models.CharField(max_length=5, choices=STATUS)
-    session = models.ManyToManyField(Session)
-    students = models.ManyToManyField(User, related_name='Student')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

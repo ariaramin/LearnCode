@@ -9,7 +9,7 @@
     <title>Admin Dashboard</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -28,14 +28,14 @@
     </style>
 
     <!-- Custom styles for this template -->
-    <link href="../../static/bootstrap/css/dashboard.css" rel="stylesheet">
+    <link href="../../../static/bootstrap/css/dashboard.css" rel="stylesheet">
       {% block css %}
       {% endblock %}
   </head>
   <body>
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">LearnCode</a>
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{% url 'home' %}">LearnCode</a>
       <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -59,21 +59,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file"></span>
-                  Session
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{% url 'read.article' %}">
                   <span data-feather="shopping-cart"></span>
                   Articles
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{% url 'read.category' %}">
                   <span data-feather="users"></span>
-                  Customers
+                  Categories
                 </a>
               </li>
               <li class="nav-item">
@@ -148,7 +142,7 @@
       </div>
     </div>
 
-    <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
 
 
   </body>

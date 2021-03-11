@@ -1,0 +1,27 @@
+
+
+<!--category-->
+    <div class="category container-fluid my-5">
+      <!--title-->
+      <div class="text-center my-4">
+        <h1>Categories</h1>
+      </div>
+      <!--row1-->
+      <div class="row">
+          {% for category in categories %}
+              <div class="col-12 col-lg-4 col-md-4 text-center my-3">
+                  <a href="">
+                    <img
+                      src="{{ category.image.url }}"
+                      class="border-0"
+                      alt="{{ category.title }}"
+                      width="280"
+                      height="230"
+                    />
+                    <h2>{{ category.title }}</h2>
+                  </a>
+              </div>
+          {% endfor %}
+      </div>
+
+    </div>

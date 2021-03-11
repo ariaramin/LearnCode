@@ -1,0 +1,41 @@
+{% extends 'admin/dashboard.html' %}
+
+
+
+{% block dashboard %}
+    <h2>Create Category</h2>
+        <!--Create category-->
+    <div class="content text-start my-4">
+        <div class="form text-start w-25 my-3">
+            <form action="{% url 'create.category' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="title">
+                    <label for="title">
+                        <span>Title:</span>
+                    </label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                </div>
+
+                <div class="description my-3">
+                    <label for="description">
+                        <span>Description:</span>
+                    </label>
+                    <textarea class="form-control" id="description" name="description" placeholder="description"></textarea>
+                </div>
+
+                <div class="image">
+                    <label for="image">
+                        <span>Image:</span>
+                    </label>
+                    <input type="file" accept="image/*" class="form-control" id="image" name="image">
+                </div>
+
+                <div class="text-center mt-4">
+                    <input type="submit" class="btn btn-outline-success shadow-sm" value="Submit">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

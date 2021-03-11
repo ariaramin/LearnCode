@@ -14,7 +14,7 @@
       <!--main-->
     <div class="intro">
       <div class="main row justify-content-center">
-        <div class="col-12 col-lg-5 text-lg-start text-center my-auto">
+        <div class="col-12 col-lg-4 text-lg-start text-center my-auto">
           <div class="container">
             <div class="about">
               <span>Online Programming</span><br />
@@ -28,97 +28,13 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-7 text-end">
+        <div class="col-12 col-lg-6 text-end">
           <img src="../static/img/learning.jpg" class="img-fluid" alt="" />
         </div>
       </div>
     </div>
 
-    <!--category-->
-    <div class="category container-fluid my-5">
-      <!--title-->
-      <div class="text-center my-4">
-        <h1>Categories</h1>
-      </div>
-      <!--row1-->
-      <div class="row">
-        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
-          <a href="">
-            <img
-              src="../static/img/frontend.jpg"
-              class="border-0"
-              alt=""
-              width="300"
-              height="250"
-            />
-            <h2>Frontend</h2>
-          </a>
-        </div>
-        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
-          <a href="">
-            <img
-              src="../static/img/backend.jpg"
-              class="border-0"
-              alt=""
-              width="300"
-              height="250"
-            />
-            <h2>Backend</h2>
-          </a>
-        </div>
-        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
-          <a href="">
-            <img
-              src="../static/img/programmer.jpg"
-              class="border-0"
-              alt=""
-              width="300"
-              height="250"
-            />
-            <h2>Desktop</h2>
-          </a>
-        </div>
-      </div>
-      <!--row2-->
-      <div class="row">
-        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
-          <a href="">
-            <img
-              src="../static/img/database.jpg"
-              class="border-0"
-              alt=""
-              width="300"
-              height="250"
-            />
-            <h2>Database</h2>
-          </a>
-        </div>
-        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
-          <a href="">
-            <img
-              src="../static/img/mobile.jpg"
-              class="border-0"
-              alt=""
-              width="300"
-              height="250"
-            />
-            <h2>Mobile</h2>
-          </a>
-        </div>
-        <div class="col-12 col-lg-4 col-md-4 text-center my-3">
-          <a href="">
-            <img
-              src="../static/img/hack.jpg"
-              class="border-0"
-              alt=""
-              width="300"
-              height="250"
-            />
-            <h2>Hack & Security</h2>
-          </a>
-        </div>
-      </div>
-    </div>
+    {% include 'category/show.html' %}
 
     <!--suggested courses-->
     <div class="suggested container my-5">
@@ -186,86 +102,39 @@
       <div class="position-relative mb-4">
         <h2 class="d-inline">Newest Articles</h2>
         <span class="float-end position-absolute bottom-0 end-0">
-          <a href="">See More</a>
+          <a href="{% url 'articles' %}">See More</a>
           <i class="fas fa-arrow-right mx-1"></i>
         </span>
       </div>
 
-        <!--
 
-      <div class="d-none d-lg-block">
-        <div class="row">
-          <div class="col-12 col-lg-4 col-md-4 my-4">
-            <div class="card">
-              <a href="">
-              <img src="../img/4457.jpg" class="card-img-top img-fluid" alt="">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">The effect of teamwork on programming</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fugiat officiis illum ratione dolorum ad voluptas eveniet animi recusandae repudiandae earum ea iusto vero, provident repellendus.
-                </p><hr>
-                <div class="detail">
-                  <span>
-                    <i class="fas fa-user"></i>
-                    <span>name</span>
-                  </span>
-                  <span class="float-end">
-                    <span>date</span>
-                    <i class="fas fa-calendar-alt"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-4 col-md-4 my-4">
-            <div class="card">
-              <a href="">
-              <img src="../img/webinnar.jpg" class="card-img-top img-fluid" alt="">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">Benefits of online courses</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fugiat officiis illum ratione dolorum ad voluptas eveniet animi recusandae repudiandae earum ea iusto vero, provident repellendus. Laboriosam dolores ratione quibusdam.
-                </p><hr>
-                <div class="detail">
-                  <span>
-                    <i class="fas fa-user"></i>
-                    <span>name</span>
-                  </span>
-                  <span class="float-end">
-                    <span>date</span>
-                    <i class="fas fa-calendar-alt"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-4 col-md-4 my-4">
-            <div class="card">
-              <a href="">
-              <img src="../img/5293.jpg" class="card-img-top img-fluid" alt="">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">Self study programming</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fugiat officiis illum ratione dolorum ad voluptas eveniet animi recusandae repudiandae earum ea iusto vero, provident repellendus. Laboriosam dolores ratione quibusdam.
-                </p><hr>
-                <div class="detail">
-                  <span>
-                    <i class="fas fa-user"></i>
-                    <span>name</span>
-                  </span>
-                  <span class="float-end">
-                    <span>date</span>
-                    <i class="fas fa-calendar-alt"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>-->
+      <div class="row">
+            {% for article in articles %}
+                {% if forloop.counter < 10 %}
+                     <div class="col-12 col-lg-4 col-md-4 my-4">
+                         <div class="card">
+                          <a href="">
+                          <img src="{{ article.image.url }}" class="card-img-top img-fluid" alt="{{ article.title }}">
+                          </a>
+                          <div class="card-body">
+                            <h5 class="card-title">{{ article.title }}</h5>
+                            <p class="card-text">{{ article.description }}</p><hr>
+                            <div class="detail">
+                              <span>
+                                <i class="fas fa-user"></i>
+                                <span>name</span>
+                              </span>
+                              <span class="float-end">
+                                <span>{{ article.created_at.date }}</span>
+                                <i class="fas fa-calendar-alt"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                     </div>
+                {% endif %}
+            {% endfor %}
+      </div>
     </div>
 
 {% endblock %}

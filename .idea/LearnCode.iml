@@ -22,9 +22,11 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/templates" />
-        <option value="$MODULE_DIR$/user/templates" />
-        <option value="$MODULE_DIR$/instructor/templates" />
         <option value="$MODULE_DIR$/course/templates" />
+        <option value="$MODULE_DIR$/user/templates" />
+        <option value="$MODULE_DIR$/session/templates" />
+        <option value="$MODULE_DIR$/category/templates" />
+        <option value="$MODULE_DIR$/article/templates" />
       </list>
     </option>
   </component>

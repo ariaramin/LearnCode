@@ -5,7 +5,7 @@ from .forms import CourseForm
 
 
 # Create your views here.
-def CreateCourse(request):
+def create(request):
     if request.method == 'POST':
         form = CourseForm(request.POST, request.FILES)
         if form.is_valid():
@@ -14,12 +14,12 @@ def CreateCourse(request):
     return render(request, 'course/create.html')
 
 
-def ReadCourse(request):
+def read(request):
     courses = Course.objects.all()
     return render(request, 'course/read.html', {'courses': courses})
 
 
-def CourseList(request):
+def show(request):
     courses_list = Course.objects.published()
     paginator = Paginator(courses_list, 9)
     page_number = request.GET.get('page')
@@ -27,7 +27,7 @@ def CourseList(request):
     return render(request, 'course/courses.html', {'courses': courses})
 
 
-def CourseUpdate(request, course_id):
+def update(request, course_id):
     course = Course.objects.get(id=course_id)
     if request.method == 'POST':
         form = CourseForm(request.POST, request.FILES, instance=course)
@@ -37,7 +37,7 @@ def CourseUpdate(request, course_id):
     return render(request, 'course/update.html', {'course': course})
 
 
-def CourseDelete(request, course_id):
+def delete(request, course_id):
     course = Course.objects.get(id=course_id)
     course.delete()
     return redirect('read.course')

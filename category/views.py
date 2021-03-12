@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from category.forms import CategoryForms
+from course.models import Course
 from .models import Category
 # Create your views here.
 
@@ -34,3 +35,6 @@ def delete(request, category_id):
     return redirect('read.category')
 
 
+def show(request, category_id):
+    courses = Course.objects.filter(category__course=category_id)
+    return render(request, 'category/show.html', {'courses': courses})

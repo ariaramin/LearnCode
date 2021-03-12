@@ -66,7 +66,7 @@
                         <label for="category">
                             <span>Category:</span>
                         </label>
-                        <select id="category" name="category">
+                        <select id="category" name="category" multiple>
                             {% for category in categories %}
                                 <option value="{{ category.id }}">{{ category.title }}</option>
                             {% endfor %}

@@ -58,6 +58,17 @@
                                 </select>
                             </div>
 
+                <div class="category">
+                    <label for="category">
+                        <span>Category:</span>
+                    </label>
+                    <select id="category" name="category">
+                        {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
                 <div class="text-center mt-4">
                                 <input type="submit" class="btn btn-outline-success shadow-sm" value="Submit">
                             </div>

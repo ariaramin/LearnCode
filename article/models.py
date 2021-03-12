@@ -1,8 +1,10 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+from category.models import Category
 
 # Create your models here.
+
+
 class Article(models.Model):
     title = models.CharField(max_length=150, null=False, blank=True)
     description = models.TextField()

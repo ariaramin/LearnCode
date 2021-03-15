@@ -35,7 +35,7 @@
                   <td>
                       <a href="{% url 'update.category' category.id %}" class="btn btn-warning">Update</a>
                       <a href="{% url 'delete.category' category.id %}" class="btn btn-danger mx-2">Delete</a>
-                      <a href="#" class="btn btn-info">Courses</a>
+                      <a href="{% url 'read_courses.category' category.id %}" class="btn btn-info">Courses</a>
                   </td>
               </tr>
           {% endfor %}

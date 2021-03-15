@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
 from category.forms import CategoryForms
 from course.models import Course
 from .models import Category
+
+
 # Create your views here.
 
 
@@ -36,5 +39,14 @@ def delete(request, category_id):
 
 
 def show(request, category_id):
-    courses = Course.objects.filter(category__course=category_id)
+    course_list = Course.objects.filter(category__course__category=category_id)
+    paginator = Paginator(course_list, 9)
+    page_number = request.GET.get('page')
+    courses = paginator.get_page(page_number)
     return render(request, 'category/show.html', {'courses': courses})
+
+
+def read_courses(request, category_id):
+    courses = Course.objects.filter(category__course__category=category_id)
+    return render(request, 'category/read_course.html', {'courses': courses})
+

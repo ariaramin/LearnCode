@@ -16,6 +16,9 @@ def register(request):
 def profile(request):
     return render(request, 'profile.html')
 
+# def profile_edit(request):
+#     return render(request, 'profile.html')
+
 
 def dashboard(request):
     return render(request, 'admin/dashboard.html')

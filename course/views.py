@@ -23,7 +23,7 @@ def read(request):
 
 def show(request):
     courses_list = Course.objects.published()
-    paginator = Paginator(courses_list, 9)
+    paginator = Paginator(courses_list, 12)
     page_number = request.GET.get('page')
     courses = paginator.get_page(page_number)
     return render(request, 'course/courses.html', {'courses': courses})

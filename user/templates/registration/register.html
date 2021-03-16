@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block css %}
+    <link href="{% static 'css/register.css' %}" rel="stylesheet">
+{% endblock %}
 
-<link href="../../../static/css/register.css" rel="stylesheet">
 
 {% block content %}
     <div class="container">
-        <div class="row shadow-lg rounded-3">
+        <div class="row justify-content-center">
         <!--cover-->
         <div class="col-12 col-lg-5 col-md-5 rounded-3 shadow-lg cover">
                 <div class="cover-content text-center my-3">
@@ -19,7 +21,7 @@
                 </div>
             </div>
         <!--Sign up-->
-        <div class="col-12 col-lg-7 col-md-7">
+        <div class="col-12 col-lg-6 col-md-6 shadow-lg rounded-3">
                 <div class="content text-center my-3">
                     <h1>Create account</h1>
                     <div class="media navbar navbar-expand justify-content-center navbar-light">

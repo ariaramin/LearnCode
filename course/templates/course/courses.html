@@ -16,7 +16,7 @@
             <!--courses-item-->
             <div class="row">
                 {% for course in courses %}
-                    <div class="col-12 col-lg-4 col-md-4 my-4">
+                    <div class="col-12 col-lg-3 col-md-3 my-4">
                         <a href="" class="link-dark">
                             <div class="card shadow-sm">
                                 <img src="{{ course.image.url }}" class="card-img-top img-fluid" alt="{{ course.title }}"/>
@@ -38,10 +38,6 @@
                                       <span class="price float-start">
                                         <i class="fas fa-money-bill-wave mx-1"></i>
                                         <span>{{ course.price }}$</span>
-                                      </span>
-                                      <span class="date">
-                                        <i class="fas fa-calendar-alt mx-1"></i>
-                                        <span>{{ course.created_at.date }}</span>
                                       </span>
                                       <span class="time float-end">
                                         <span>{{ course.time }}</span>

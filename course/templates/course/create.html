@@ -58,11 +58,11 @@
                                 </select>
                             </div>
 
-                <div class="category">
+                <div class="category my-3">
                     <label for="category">
                         <span>Category:</span>
                     </label>
-                    <select id="category" name="category" multiple>
+                    <select id="category" name="category">
                         {% for category in categories %}
                             <option value="{{ category.id }}">{{ category.title }}</option>
                         {% endfor %}

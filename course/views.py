@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import permission_required
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from category.models import Category
@@ -6,6 +7,7 @@ from .forms import CourseForm
 
 
 # Create your views here.
+@permission_required('Course.add_course')
 def create(request):
     categories = Category.objects.all()
     if request.method == 'POST':
@@ -29,6 +31,7 @@ def show(request):
     return render(request, 'course/courses.html', {'courses': courses})
 
 
+@permission_required('Course.change_course')
 def update(request, course_id):
     categories = Category.objects.all()
     course = Course.objects.get(id=course_id)
@@ -40,6 +43,7 @@ def update(request, course_id):
     return render(request, 'course/update.html', {'course': course, 'categories': categories})
 
 
+@permission_required('Course.delete_course')
 def delete(request, course_id):
     course = Course.objects.get(id=course_id)
     course.delete()

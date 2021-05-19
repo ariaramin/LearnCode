@@ -3,8 +3,8 @@ from django.db import models
 
 
 # Create your models here.
-class Student(User):
-    image = models.ImageField(upload_to='static/student/images', default='static/img/user.png', null=False)
+class Account(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='account/images', default='account/images/user.png', null=True)
 
-    def __str__(self):
-        return self.username
+

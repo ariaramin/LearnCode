@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from category.forms import CategoryForms
@@ -7,7 +8,7 @@ from .models import Category
 
 # Create your views here.
 
-
+@permission_required('Category.add_category')
 def create(request):
     if request.method == 'POST':
         form = CategoryForms(request.POST, request.FILES)
@@ -22,6 +23,7 @@ def read(request):
     return render(request, 'category/read.html', {'categories': categories})
 
 
+@permission_required('Category.change_category')
 def update(request, category_id):
     category = Category.objects.get(id=category_id)
     if request.method == 'POST':
@@ -32,6 +34,7 @@ def update(request, category_id):
     return render(request, 'category/update.html', {'category': category})
 
 
+@permission_required('Category.delete_category')
 def delete(request, category_id):
     category = Category.objects.get(id=category_id)
     category.delete()

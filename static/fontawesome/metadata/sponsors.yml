@@ -55,7 +55,7 @@ apper-systems-ab:
   url: 'http://asymmetrik.com'
 ausmed-education:
   icons:
-    - user-nurse
+    - account-nurse
   label: Ausmed Education
   url: 'https://www.ausmed.com.au'
 avianex:
@@ -250,7 +250,7 @@ harvard-medical-school:
     - syringe
     - tablets
     - thermometer
-    - user-md
+    - account-md
     - vial
     - vials
     - weight
@@ -361,7 +361,7 @@ medapps:
     - comment-medical
     - crutch
     - disease
-    - hospital-user
+    - hospital-account
     - laptop-medical
     - pager
   label: MedApps
@@ -388,7 +388,7 @@ mrt:
   url: 'https://medrt.co.jp'
 mylogin-info:
   icons:
-    - user-shield
+    - account-shield
   label: mylogin.info
   url: 'https://www.mylogin.info'
 napster:
@@ -695,7 +695,7 @@ via:
     - house-damage
     - layer-group
     - skull-crossbones
-    - user-injured
+    - account-injured
   label: VIA Traffic Software Solutions
   url: 'https://www.via.software'
 victor-costan:

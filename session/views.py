@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, redirect
 from .models import Session
 from course.models import Course
@@ -5,6 +6,7 @@ from .forms import SessionForm
 # Create your views here.
 
 
+@permission_required('Session.add_session')
 def CreateSession(request, course_id):
     course = Course.objects.get(id=course_id)
     if request.method == 'POST':
@@ -25,6 +27,7 @@ def ReadSession(request, course_id):
     return render(request, 'session/read.html', context)
 
 
+@permission_required('Session.change_session')
 def UpdateSession(request, session_id):
     session = Session.objects.get(id=session_id)
     if request.method == 'POST':
@@ -35,6 +38,7 @@ def UpdateSession(request, session_id):
     return render(request, 'session/update.html', {'session': session})
 
 
+@permission_required('Session.delete_session')
 def DeleteSession(request, session_id):
     session = Session.objects.get(id=session_id)
     session.delete()

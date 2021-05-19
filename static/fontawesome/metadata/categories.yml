@@ -269,7 +269,7 @@ buildings:
     - home
     - hospital
     - hospital-alt
-    - hospital-user
+    - hospital-account
     - hotel
     - house-damage
     - igloo
@@ -472,7 +472,7 @@ clothing:
     - shoe-prints
     - socks
     - tshirt
-    - user-tie
+    - account-tie
   label: Clothing
 code:
   icons:
@@ -499,7 +499,7 @@ code:
     - sitemap
     - stream
     - terminal
-    - user-secret
+    - account-secret
     - window-close
     - window-maximize
     - window-minimize
@@ -785,7 +785,7 @@ education:
     - school
     - shapes
     - theater-masks
-    - user-graduate
+    - account-graduate
   label: Education
 emoji:
   icons:
@@ -1085,7 +1085,7 @@ health:
     - plus-square
     - prescription
     - stethoscope
-    - user-md
+    - account-md
     - wheelchair
   label: Health
 holiday:
@@ -1154,7 +1154,7 @@ household:
     - dungeon
     - fan
     - faucet
-    - house-user
+    - house-account
     - laptop-house
     - lightbulb
     - plug
@@ -1351,9 +1351,9 @@ interfaces:
     - undo
     - undo-alt
     - upload
-    - user
-    - user-alt
-    - user-circle
+    - account
+    - account-alt
+    - account-circle
     - volume-down
     - volume-mute
     - volume-off
@@ -1589,7 +1589,7 @@ medical:
     - hospital
     - hospital-alt
     - hospital-symbol
-    - hospital-user
+    - hospital-account
     - id-card-alt
     - joint
     - laptop-medical
@@ -1620,8 +1620,8 @@ medical:
     - teeth-open
     - thermometer
     - tooth
-    - user-md
-    - user-nurse
+    - account-md
+    - account-nurse
     - vial
     - vials
     - virus
@@ -2081,7 +2081,7 @@ science-fiction:
     - satellite
     - satellite-dish
     - space-shuttle
-    - user-astronaut
+    - account-astronaut
   label: Science Fiction
 security:
   icons:
@@ -2106,9 +2106,9 @@ security:
     - shield-alt
     - unlock
     - unlock-alt
-    - user-lock
-    - user-secret
-    - user-shield
+    - account-lock
+    - account-secret
+    - account-shield
   label: Security
 shapes:
   icons:
@@ -2175,10 +2175,10 @@ social:
     - thumbs-down
     - thumbs-up
     - thumbtack
-    - user
-    - user-circle
-    - user-friends
-    - user-plus
+    - account
+    - account-circle
+    - account-friends
+    - account-plus
     - users
     - video
   label: Social
@@ -2322,10 +2322,10 @@ status:
     - toggle-on
     - unlock
     - unlock-alt
-    - user
-    - user-alt
-    - user-alt-slash
-    - user-slash
+    - account
+    - account-alt
+    - account-alt-slash
+    - account-slash
     - video
     - video-slash
     - volume-down
@@ -2440,30 +2440,30 @@ users-people:
     - snowboarding
     - street-view
     - swimmer
-    - user
-    - user-alt
-    - user-alt-slash
-    - user-astronaut
-    - user-check
-    - user-circle
-    - user-clock
-    - user-cog
-    - user-edit
-    - user-friends
-    - user-graduate
-    - user-injured
-    - user-lock
-    - user-md
-    - user-minus
-    - user-ninja
-    - user-nurse
-    - user-plus
-    - user-secret
-    - user-shield
-    - user-slash
-    - user-tag
-    - user-tie
-    - user-times
+    - account
+    - account-alt
+    - account-alt-slash
+    - account-astronaut
+    - account-check
+    - account-circle
+    - account-clock
+    - account-cog
+    - account-edit
+    - account-friends
+    - account-graduate
+    - account-injured
+    - account-lock
+    - account-md
+    - account-minus
+    - account-ninja
+    - account-nurse
+    - account-plus
+    - account-secret
+    - account-shield
+    - account-slash
+    - account-tag
+    - account-tie
+    - account-times
     - users
     - users-cog
     - users-slash

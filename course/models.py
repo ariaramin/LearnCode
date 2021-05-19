@@ -22,7 +22,7 @@ class Course(models.Model):
     )
     title = models.CharField(max_length=100, null=False)
     description = models.TextField(default='')
-    image = models.ImageField(upload_to='static/course/images/', null=False)
+    image = models.ImageField(upload_to='course/images/', null=False)
     level = models.CharField(max_length=5, choices=LEVEL)
     price = models.DecimalField(max_digits=7, decimal_places=2, default=0)
     status = models.CharField(max_length=5, choices=STATUS)

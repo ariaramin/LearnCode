@@ -7,7 +7,7 @@ from course.models import Course
 class Session(models.Model):
     title = models.CharField(max_length=100, null=False)
     description = models.TextField()
-    video = models.FileField(upload_to='static/session/videos', null=False)
+    video = models.FileField(upload_to='session/videos', null=False)
     time = models.CharField(max_length=20)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, null=True)

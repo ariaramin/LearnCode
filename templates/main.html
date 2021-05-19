@@ -73,7 +73,7 @@
 
       <!--courses-item-->
       <div class="d-none d-lg-block">
-        <div class="row">
+        <div class="row justify-content-center">
             {% for course in courses %}
                 {% if forloop.counter <= 12 %}
                     <div class="col-12 col-lg-3 col-md-3 my-4">
@@ -138,7 +138,7 @@
                           </a>
                           <div class="card-body">
                             <h5 class="card-title">{{ article.title }}</h5>
-                            <p class="card-text">{{ article.description }}</p><hr>
+                            <small class="card-text">{{ article.description | truncatewords:'20' }}</small><hr>
                             <div class="detail">
                               <span>
                                 <i class="fas fa-user"></i>

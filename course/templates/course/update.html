@@ -4,10 +4,9 @@
 
 {% block dashboard %}
     <!--Update Course-->
-    <div class="col-12">
+    <h1>Update Course</h1>
         <div class="content text-start my-4">
-            <h1>Update Course</h1>
-            <div class="form text-center mx-auto w-50 my-3">
+            <div class="form w-25 my-3">
                 <form action="{% url 'update.course' course.id %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="title">
@@ -79,5 +78,4 @@
                 </form>
             </div>
         </div>
-    </div>
 {% endblock %}

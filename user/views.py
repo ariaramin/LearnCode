@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import render, redirect
-
 from article.models import Article
 from course.models import Course
 from session.models import Session
@@ -39,13 +38,15 @@ def profile(request):
 def SetPermission(request, user_id):
     Permissions = Permission.objects.all()
     user = User.objects.get(id=user_id)
+    user_permissions = Permission.objects.filter(user=user)
     if request.method == 'POST':
-        content_type = ContentType.objects.get_for_models(Course, Article, Session)
-        permission = Permission.objects.get(codename=request.POST['ChoosePermission'], content_type=content_type)
+        # content_type = ContentType.objects.get_for_models(Course, Article, Session)
+        permission = Permission.objects.get(codename=request.POST['ChoosePermission'])
         user.user_permissions.add(permission)
-    return render(request, 'admin/permissions.html', {'permissions': Permissions, 'user': user})
+    return render(request, 'admin/permissions.html', {'permissions': Permissions, 'user': user, 'user_permissions': user_permissions})
 
 
 def dashboard(request):
     users = Account.objects.all()
-    return render(request, 'admin/dashboard.html', {'users': users})
+    Permissions = Permission.objects.all()
+    return render(request, 'admin/dashboard.html', {'users': users, 'permissions': Permissions})

@@ -33,7 +33,7 @@ a{
 
 
 .intro{
-    margin: 5% 0 10% 0;
+    margin: 15rem 0 10rem 0;
 }
 
 .about span{
@@ -56,7 +56,7 @@ a{
 .price{
     color: #06ca31;
 }
-.time{
+.video{
     color: #2184e0;
 }
 .instructor, .level, .detail{

@@ -7,4 +7,4 @@ class SessionForm(forms.ModelForm):
     class Meta:
         model = Session
 
-        fields = ['title', 'description', 'video', 'time']
+        fields = ['title', 'description', 'video']

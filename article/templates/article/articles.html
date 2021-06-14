@@ -23,8 +23,8 @@
                               <img src="{{ article.image.url }}" class="card-img-top img-fluid" alt="{{ article.title }}">
                               </a>
                               <div class="card-body">
-                                <h5 class="card-title">{{ article.title }}</h5>
-                                <p class="card-text">{{ article.description }}</p><hr>
+                                <h5 class="card-title">{{ article.title | truncatechars:'32' }}</h5>
+                                <p class="card-text">{{ article.description | truncatewords:'20' }}</p><hr>
                                 <div class="detail">
                                   <span>
                                     <i class="fas fa-user"></i>

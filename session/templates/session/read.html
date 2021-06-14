@@ -16,7 +16,6 @@
               <th>Title</th>
               <th>Description</th>
               <th>Video</th>
-              <th>Time</th>
               <th>Created_at</th>
               <th>Updated_at</th>
               <th>Manage</th>
@@ -28,11 +27,10 @@
                   <td>{{ session.title }}</td>
                   <td>{{ session.description | truncatewords:3 }}</td>
                   <td>
-                       <video width="200" height="100" controls>
+                       <video class="video-player" width="200" height="100" controls>
                           <source src="{{ session.video.url }}" type="video/mp4">
                        </video>
                   </td>
-                  <td>{{ session.time }}</td>
                   <td>{{ session.created_at }}</td>
                   <td>{{ session.updated_at }}</td>
                   <td>

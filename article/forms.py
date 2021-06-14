@@ -10,4 +10,5 @@ class ArticleForms(forms.ModelForm):
             'title',
             'description',
             'image',
+            'author'
         ]

@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="../static/css/main.css" rel="stylesheet">
+{% endblock %}
 
 
 {% block title %}
@@ -18,7 +23,7 @@
                 {% for course in courses %}
                     <div class="col-12 col-lg-3 col-md-3 my-4">
                         <a href="" class="link-dark">
-                            <div class="card shadow-sm">
+                            <div class="card shadow-lg">
                                 <img src="{{ course.image.url }}" class="card-img-top img-fluid" alt="{{ course.title }}"/>
                                 <div class="card-body">
                                   <h5 class="card-title text-center mb-4">{{ course.title }}</h5>
@@ -39,9 +44,9 @@
                                         <i class="fas fa-money-bill-wave mx-1"></i>
                                         <span>{{ course.price }}$</span>
                                       </span>
-                                      <span class="time float-end">
-                                        <span>{{ course.time }}</span>
-                                        <i class="fas fa-clock mx-1"></i>
+                                      <span class="video float-end">
+                                        <span>{{ course.sessions.count}}</span>
+                                        <i class="fas fa-video mx-1"></i>
                                       </span>
                                     </div>
                                   </div>

@@ -6,5 +6,6 @@ from django.db import models
 class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='account/images', default='account/images/user.png', null=True)
+    is_instructor = models.BooleanField(default=False)
 
 

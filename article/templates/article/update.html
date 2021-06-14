@@ -30,6 +30,17 @@
                     <input type="file" accept="image/*" class="form-control" id="image" name="image" value="{{ article.image }}">
                 </div>
 
+                <div class="author my-3">
+                    <label for="author">
+                        <span>Instructor:</span>
+                    </label>
+                    <select id="author" name="author">
+                        {% for author in authors %}
+                            <option value="{{ author.id }}">{{ author.username }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
                 <div class="text-center mt-4">
                     <input type="submit" class="btn btn-outline-success shadow-sm" value="Submit">
                 </div>

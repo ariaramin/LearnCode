@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from .models import Session
 from course.models import Course
 from .forms import SessionForm
+
+
 # Create your views here.
 
 

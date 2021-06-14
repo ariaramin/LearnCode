@@ -1,0 +1,21 @@
+{% extends 'admin/dashboard.html' %}
+
+{% block dashboard %}
+    <div class="container">
+        <div class="row">
+            <div class="col-7">
+                <form action="{% url 'update.user' user.id %}" method="post">
+                {% csrf_token %}
+
+                    <select name="ChoosePermission">
+                        {% for permission in permissions %}
+                            <option value="{{ permission.codename }}">{{ permission.name }}</option>
+                        {% endfor %}
+                    </select>
+
+                <input type="submit" class="btn btn-success" value="Set Permission">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

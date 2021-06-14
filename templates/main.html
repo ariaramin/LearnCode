@@ -14,7 +14,7 @@
       <!--main-->
     <div class="intro">
       <div class="main row justify-content-center">
-        <div class="col-12 col-lg-4 text-lg-start text-center my-auto">
+        <div class="col-12 col-lg-4 text-lg-start text-center">
           <div class="container">
             <div class="about">
               <span>Online Programming</span><br />
@@ -35,12 +35,12 @@
     </div>
 
     <!--category-->
-    <div class="category container-fluid my-5">
+    <div class="category container my-5">
       <!--title-->
       <div class="text-center my-4">
         <h1>Categories</h1>
       </div>
-      <!--row1-->
+      <!--categories-->
       <div class="row">
           {% for category in categories %}
               <div class="col-12 col-lg-4 col-md-4 text-center my-3">
@@ -78,7 +78,7 @@
                 {% if forloop.counter <= 12 %}
                     <div class="col-12 col-lg-3 col-md-3 my-4">
                         <a href="" class="link-dark">
-                            <div class="card shadow-sm">
+                            <div class="card shadow-lg">
                                 <img src="{{ course.image.url }}" class="card-img-top img-fluid" alt="{{ course.title }}"/>
                                 <div class="card-body">
                                     <h5 class="card-title text-center mb-4">{{ course.title }}</h5>
@@ -99,9 +99,9 @@
                                           <i class="fas fa-money-bill-wave mx-1"></i>
                                           <span>{{ course.price }}$</span>
                                         </span>
-                                        <span class="time float-end">
-                                          <span>time</span>
-                                          <i class="fas fa-clock mx-1"></i>
+                                        <span class="video float-end">
+                                            <span>{{ course.sessions.count}}</span>
+                                            <i class="fas fa-video mx-1"></i>
                                         </span>
                                       </div>
                                     </div>
@@ -132,12 +132,12 @@
             {% for article in articles %}
                 {% if forloop.counter < 10 %}
                      <div class="col-12 col-lg-4 col-md-4 my-4">
-                         <div class="card">
+                         <div class="card shadow-lg">
                           <a href="">
                           <img src="{{ article.image.url }}" class="card-img-top img-fluid" alt="{{ article.title }}">
                           </a>
                           <div class="card-body">
-                            <h5 class="card-title">{{ article.title }}</h5>
+                            <h5 class="card-title">{{ article.title | truncatechars:'32'}}</h5>
                             <small class="card-text">{{ article.description | truncatewords:'20' }}</small><hr>
                             <div class="detail">
                               <span>

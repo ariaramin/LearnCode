@@ -23,3 +23,5 @@ class AccountForm(forms.ModelForm):
         model = Account
 
         fields = ['image']
+
+

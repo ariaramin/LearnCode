@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User, Permission
+from django.contrib.auth.models import User, Permission, Group
 from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import render, redirect
 from article.models import Article
@@ -34,6 +34,7 @@ def profile(request):
 #             form2.save()
 #             return redirect('profile')
 #     return render(request, 'profile.html', {'user': account, 'form1': form1, 'form2': form2})
+
 
 def SetPermission(request, user_id):
     Permissions = Permission.objects.all()

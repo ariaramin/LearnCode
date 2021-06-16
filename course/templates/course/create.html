@@ -69,20 +69,18 @@
                     </select>
                 </div>
 
-                <div class="instructor my-3">
-                    <label for="instructor">
-                        <span>Instructor:</span>
-                    </label>
-                    <select id="instructor" name="instructor">
-                        {% for instructor in instructors %}
+                    <div class="instructor my-3">
+                        <label for="instructor">
+                            <span>Instructor:</span>
+                        </label>
+                        <select id="instructor" name="instructor">
                             <option value="{{ instructor.id }}">{{ instructor.username }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
+                        </select>
+                    </div>
 
                 <div class="text-center mt-4">
-                                <input type="submit" class="btn btn-outline-success shadow-sm" value="Submit">
-                            </div>
+                    <input type="submit" class="btn btn-outline-success shadow-sm" value="Submit">
+                </div>
 
             </form>
         </div>

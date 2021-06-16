@@ -77,9 +77,7 @@
                             <span>Instructor:</span>
                         </label>
                         <select id="instructor" name="instructor">
-                            {% for instructor in instructors %}
-                                <option value="{{ instructor.id }}">{{ instructor.username }}</option>
-                            {% endfor %}
+                            <option value="{{ instructor.id }}">{{ instructor.username }}</option>
                         </select>
                     </div>
 

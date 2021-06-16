@@ -35,9 +35,7 @@
                         <span>Instructor:</span>
                     </label>
                     <select id="author" name="author">
-                        {% for author in authors %}
-                            <option value="{{ author.id }}">{{ author.username }}</option>
-                        {% endfor %}
+                        <option value="{{ author.id }}">{{ author.username }}</option>
                     </select>
                 </div>
 

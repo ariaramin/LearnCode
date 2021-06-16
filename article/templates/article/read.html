@@ -15,10 +15,10 @@
             <tr>
               <th>#</th>
               <th>Title</th>
+                <th>Image</th>
               <th>Description</th>
-              <th>Image</th>
+              <th>Author</th>
               <th>Created_at</th>
-              <th>Updated_at</th>
               <th>Manage</th>
             </tr>
           </thead>
@@ -27,10 +27,10 @@
               <tr>
                   <td>{{ article.id }}</td>
                   <td>{{ article.title | truncatewords:3 }}</td>
-                  <td>{{ article.description | truncatewords:5 }}</td>
                   <td><img src="{{ article.image.url }}" class="img-fluid" width="100" height="60"></td>
+                  <td>{{ article.description | truncatewords:5 }}</td>
+                  <td>{{ article.author }}</td>
                   <td>{{ article.created_at }}</td>
-                  <td>{{ article.updated_at }}</td>
                   <td>
                       <a href="{% url 'update.article' article.id %}" class="btn btn-warning">Update</a>
                       <a href="{% url 'delete.article' article.id %}" class="btn btn-danger mx-2">Delete</a>

@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-from user.models import Account
 from .forms import ArticleForms
 from .models import Article
 # Create your views here.
@@ -9,13 +9,13 @@ from .models import Article
 
 @permission_required('Article.add_article')
 def create(request):
-    authors = Account.objects.filter(is_instructor=True)
+    author = User.objects.get(id=request.user.id)
     if request.method == 'POST':
         form = ArticleForms(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('read.article')
-    return render(request, 'article/create.html', {'authors': authors})
+    return render(request, 'article/create.html', {'author': author})
 
 
 def read(request):
@@ -25,14 +25,14 @@ def read(request):
 
 @permission_required('Category.change_category')
 def update(request, article_id):
-    authors = Account.objects.filter(is_instructor=True)
+    author = User.objects.get(id=request.user.id)
     article = Article.objects.get(id=article_id)
     if request.method == 'POST':
         form = ArticleForms(request.POST, request.FILES, instance=article)
         if form.is_valid():
             form.save()
             return redirect('read.article')
-    return render(request, 'article/update.html', {'article': article, 'authors': authors})
+    return render(request, 'article/update.html', {'article': article, 'author': author})
 
 
 @permission_required('Category.delete_category')

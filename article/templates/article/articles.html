@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+{% block css %}
+    <link href="../static/css/main.css" rel="stylesheet">
+{% endblock %}
 
 {% block title %}
     Articles
@@ -18,7 +21,7 @@
                 <div class="row">
                     {% for article in articles %}
                         <div class="col-12 col-lg-4 col-md-4 my-4">
-                            <div class="card">
+                            <div class="card shadow-lg">
                               <a href="">
                               <img src="{{ article.image.url }}" class="card-img-top img-fluid" alt="{{ article.title }}">
                               </a>
@@ -28,7 +31,7 @@
                                 <div class="detail">
                                   <span>
                                     <i class="fas fa-user"></i>
-                                    <span>name</span>
+                                    <span>{{ article.author }}</span>
                                   </span>
                                   <span class="float-end">
                                     <span>{{ article.created_at.date }}</span>

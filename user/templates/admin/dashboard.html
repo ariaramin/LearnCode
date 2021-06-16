@@ -150,7 +150,6 @@
                       <th>Username</th>
                       <th>Image</th>
                       <th>Email</th>
-                      <th>Is Instructor</th>
                       <th>Date Joined</th>
                       <th>Manage</th>
                     </tr>
@@ -162,7 +161,6 @@
                           <td>{{ user.user.username }}</td>
                           <td><img src="{{ user.image.url }}" class="img-fluid rounded-circle" width="50" height="50"></td>
                           <td>{{ user.Email }}</td>
-                          <td>{{ user.is_instructor }}</td>
                           <td>{{ user.user.date_joined }}</td>
                           <td>
                               <a href="{% url 'update.user' user.user.id %}" class="btn btn-warning">Update</a>
